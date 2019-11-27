@@ -16,6 +16,7 @@
 		CE084AEB23878B450088E520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AEA23878B450088E520 /* main.m */; };
 		CE084AF523878B450088E520 /* TodayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AF423878B450088E520 /* TodayDemoTests.m */; };
 		CE084B0023878B450088E520 /* TodayDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AFF23878B450088E520 /* TodayDemoUITests.m */; };
+		CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		CE084AFB23878B450088E520 /* TodayDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE084AFF23878B450088E520 /* TodayDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayDemoUITests.m; sourceTree = "<group>"; };
 		CE084B0123878B450088E520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF29C83238D15C700BAF058 /* SpeechVoiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechVoiceController.h; sourceTree = "<group>"; };
+		CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechVoiceController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				CE084AE623878B450088E520 /* LaunchScreen.storyboard */,
 				CE084AE923878B450088E520 /* Info.plist */,
 				CE084AEA23878B450088E520 /* main.m */,
+				CEF29C83238D15C700BAF058 /* SpeechVoiceController.h */,
+				CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */,
 			);
 			path = TodayDemo;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE084AE023878B430088E520 /* ViewController.m in Sources */,
+				CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */,
 				CE084ADA23878B430088E520 /* AppDelegate.m in Sources */,
 				CE084AEB23878B450088E520 /* main.m in Sources */,
 				CE084ADD23878B430088E520 /* SceneDelegate.m in Sources */,
@@ -440,7 +446,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JK6LK4JPSD;
 				INFOPLIST_FILE = TodayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +464,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JK6LK4JPSD;
 				INFOPLIST_FILE = TodayDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
