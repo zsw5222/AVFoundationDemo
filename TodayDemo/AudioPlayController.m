@@ -9,7 +9,7 @@
 #import "AudioPlayController.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface AudioPlayController ()
+@interface AudioPlayController ()<AVAudioPlayerDelegate>
 
 @property(nonatomic,strong)AVAudioPlayer *player1;
 
@@ -32,7 +32,11 @@
     self.player1.numberOfLoops = -1;
     self.player1.enableRate = YES;
     [self.player1 prepareToPlay];
+    self.player1.delegate = self;
+    //播放打断
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioInterrut:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
+    //播放线路改变
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRouteChange:) name:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance]];
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -56,6 +60,7 @@
 
 - (IBAction)start:(UIButton *)sender {
     [self.player1 play];
+    
 //    [self.player1 playAtTime:self.player1.deviceCurrentTime];
 }
 
@@ -85,15 +90,43 @@
     NSLog(@"播放中断----%@",notifi.userInfo);
     AudioSessionInterruptionType type = [notifi.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntValue];
     if (type == AVAudioSessionInterruptionTypeBegan) {
-        [self stop:nil];
+        [self.player1 stop];
     }
     if (type == AVAudioSessionInterruptionTypeEnded) {
         AVAudioSessionInterruptionOptions options = [notifi.userInfo[AVAudioSessionInterruptionOptionKey] unsignedIntValue];
         if (options == AVAudioSessionInterruptionOptionShouldResume) {
             NSLog(@"resume play------");
-            [self start:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.player1 play];
+            });
+           
         }
     }
 }
-
+//线路改变
+- (void)handleRouteChange:(NSNotification*)notifi{
+    NSLog(@"播放中断----%@",notifi.userInfo);
+    NSDictionary*dict = notifi.userInfo;
+    AVAudioSessionRouteChangeReason reson = [dict[AVAudioSessionRouteChangeReasonKey] unsignedIntValue];
+    //旧设备不可用
+    if (reson == AVAudioSessionRouteChangeReasonOldDeviceUnavailable) {
+        AVAudioSessionRouteDescription *preRouteDescrp = dict[AVAudioSessionRouteChangePreviousRouteKey];
+        AVAudioSessionPortDescription* prePortDescrp = preRouteDescrp.outputs[0];
+        //耳机
+        if ([prePortDescrp.portType isEqualToString:AVAudioSessionPortHeadphones] ) {
+            NSLog(@"耳机断开，停止播放---");
+            //停止播放
+            [self stop:nil];
+        }
+    }
+    
+}
+ 
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    NSLog(@"audioPlayerDidFinishPlaying----");
+}
+- (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
+    NSLog(@"audioPlayerDecodeErrorDidOccur==%@",error);
+}
+ 
 @end
