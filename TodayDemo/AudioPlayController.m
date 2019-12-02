@@ -37,9 +37,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioInterrut:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
     //播放线路改变
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRouteChange:) name:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance]];
+    //后台控制
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
 }
 
 - (IBAction)rateChange:(UISlider *)sender {
@@ -90,15 +94,14 @@
     NSLog(@"播放中断----%@",notifi.userInfo);
     AudioSessionInterruptionType type = [notifi.userInfo[AVAudioSessionInterruptionTypeKey] unsignedIntValue];
     if (type == AVAudioSessionInterruptionTypeBegan) {
-        [self.player1 stop];
+        [self stop:nil];
     }
     if (type == AVAudioSessionInterruptionTypeEnded) {
         AVAudioSessionInterruptionOptions options = [notifi.userInfo[AVAudioSessionInterruptionOptionKey] unsignedIntValue];
         if (options == AVAudioSessionInterruptionOptionShouldResume) {
             NSLog(@"resume play------");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.player1 play];
-            });
+            [self start:nil];
+          
            
         }
     }
