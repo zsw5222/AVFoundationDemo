@@ -16,6 +16,8 @@
 		CE084AEB23878B450088E520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AEA23878B450088E520 /* main.m */; };
 		CE084AF523878B450088E520 /* TodayDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AF423878B450088E520 /* TodayDemoTests.m */; };
 		CE084B0023878B450088E520 /* TodayDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AFF23878B450088E520 /* TodayDemoUITests.m */; };
+		CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE51AA802396592800DB0F70 /* AudioRecoderController.m */; };
+		CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */; };
 		CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */; };
 		CEBFD2C2238F987A00F993E8 /* beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C1238F987A00F993E8 /* beach.mp3 */; };
 		CEBFD2C4238F988100F993E8 /* toto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C3238F988100F993E8 /* toto.mp3 */; };
@@ -58,6 +60,10 @@
 		CE084AFB23878B450088E520 /* TodayDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE084AFF23878B450088E520 /* TodayDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayDemoUITests.m; sourceTree = "<group>"; };
 		CE084B0123878B450088E520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE51AA7F2396592800DB0F70 /* AudioRecoderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioRecoderController.h; sourceTree = "<group>"; };
+		CE51AA802396592800DB0F70 /* AudioRecoderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecoderController.m; sourceTree = "<group>"; };
+		CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WH.h"; sourceTree = "<group>"; };
+		CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WH.m"; sourceTree = "<group>"; };
 		CEBFD2BE238F62E000F993E8 /* AudioPlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayController.h; sourceTree = "<group>"; };
 		CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayController.m; sourceTree = "<group>"; };
 		CEBFD2C1238F987A00F993E8 /* beach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beach.mp3; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		CE084AD723878B430088E520 /* TodayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CE6F20392397A65000081EC8 /* category */,
 				CEBFD2C3238F988100F993E8 /* toto.mp3 */,
 				CEBFD2C1238F987A00F993E8 /* beach.mp3 */,
 				CE084AD823878B430088E520 /* AppDelegate.h */,
@@ -131,6 +138,8 @@
 				CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */,
 				CEBFD2BE238F62E000F993E8 /* AudioPlayController.h */,
 				CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */,
+				CE51AA7F2396592800DB0F70 /* AudioRecoderController.h */,
+				CE51AA802396592800DB0F70 /* AudioRecoderController.m */,
 			);
 			path = TodayDemo;
 			sourceTree = "<group>";
@@ -151,6 +160,15 @@
 				CE084B0123878B450088E520 /* Info.plist */,
 			);
 			path = TodayDemoUITests;
+			sourceTree = "<group>";
+		};
+		CE6F20392397A65000081EC8 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */,
+				CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */,
+			);
+			path = category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +307,10 @@
 				CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */,
 				CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */,
 				CE084ADA23878B430088E520 /* AppDelegate.m in Sources */,
+				CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */,
 				CE084AEB23878B450088E520 /* main.m in Sources */,
 				CE084ADD23878B430088E520 /* SceneDelegate.m in Sources */,
+				CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

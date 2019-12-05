@@ -8,6 +8,7 @@
 
 #import "AudioPlayController.h"
 #import <AVFoundation/AVFoundation.h>
+ 
 
 @interface AudioPlayController ()<AVAudioPlayerDelegate>
 
@@ -50,6 +51,7 @@
     NSLog(@"current rate==%f",sender.value);
     //0.5-2.0
     self.player1.rate = sender.value;
+    
 }
 
 - (IBAction)panChange:(UISlider *)sender {
@@ -108,7 +110,7 @@
 }
 //线路改变
 - (void)handleRouteChange:(NSNotification*)notifi{
-    NSLog(@"播放中断----%@",notifi.userInfo);
+    NSLog(@"route change----%@",notifi.userInfo);
     NSDictionary*dict = notifi.userInfo;
     AVAudioSessionRouteChangeReason reson = [dict[AVAudioSessionRouteChangeReasonKey] unsignedIntValue];
     //旧设备不可用
@@ -129,6 +131,7 @@
     NSLog(@"audioPlayerDidFinishPlaying----");
 }
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error{
+    
     NSLog(@"audioPlayerDecodeErrorDidOccur==%@",error);
 }
  
