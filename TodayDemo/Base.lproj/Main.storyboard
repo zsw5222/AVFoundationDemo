@@ -182,9 +182,21 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-I2-ggJ">
                                 <rect key="frame" x="20" y="258" width="374" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-eG-2hc">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Lna-v3-CeP"/>
+                                    <constraint firstItem="1hQ-eG-2hc" firstAttribute="leading" secondItem="dBa-I2-ggJ" secondAttribute="leading" id="WLN-yl-utp"/>
+                                    <constraint firstAttribute="trailing" secondItem="1hQ-eG-2hc" secondAttribute="trailing" id="d6E-ES-HFq"/>
+                                    <constraint firstItem="1hQ-eG-2hc" firstAttribute="top" secondItem="dBa-I2-ggJ" secondAttribute="top" id="qXI-5a-oH1"/>
+                                    <constraint firstAttribute="bottom" secondItem="1hQ-eG-2hc" secondAttribute="bottom" id="zTk-bB-2Pp"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jjU-7f-G5k">
@@ -216,6 +228,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7MM-0w-RQZ"/>
                     <connections>
+                        <outlet property="dbLab" destination="1hQ-eG-2hc" id="rAy-xa-Trt"/>
                         <outlet property="tabV" destination="jjU-7f-G5k" id="PR1-aV-wvV"/>
                         <outlet property="timeLab" destination="hLh-gt-xJ1" id="1LP-z6-NB3"/>
                     </connections>
