@@ -73,11 +73,7 @@
     
 }
 
-
-
-
-
-
+ 
 - (IBAction)playbackClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     if (sender.isSelected) {

@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1hQ-eG-2hc"; */
+"1hQ-eG-2hc.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "start"; ObjectID = "BKr-JI-x6q"; */
+"BKr-JI-x6q.normalTitle" = "start";
+
+/* Class = "UIButton"; selectedTitle = "pause"; ObjectID = "BKr-JI-x6q"; */
+"BKr-JI-x6q.selectedTitle" = "pause";
+
+/* Class = "UILabel"; text = "语音朗读"; ObjectID = "EPA-zh-5zk"; */
+"EPA-zh-5zk.text" = "语音朗读";
+
+/* Class = "UIButton"; normalTitle = "stop"; ObjectID = "FNe-At-THv"; */
+"FNe-At-THv.normalTitle" = "stop";
+
+/* Class = "UILabel"; text = "AVAudioRecoder"; ObjectID = "KmM-jP-ee1"; */
+"KmM-jP-ee1.text" = "AVAudioRecoder";
+
+/* Class = "UIButton"; normalTitle = "pause"; ObjectID = "NKk-pn-n0E"; */
+"NKk-pn-n0E.normalTitle" = "pause";
+
+/* Class = "UILabel"; text = "pan"; ObjectID = "QYm-PE-w42"; */
+"QYm-PE-w42.text" = "pan";
+
+/* Class = "UILabel"; text = "volume"; ObjectID = "aau-s0-fjd"; */
+"aau-s0-fjd.text" = "volume";
+
+/* Class = "UILabel"; text = "00:00:00"; ObjectID = "hLh-gt-xJ1"; */
+"hLh-gt-xJ1.text" = "00:00:00";
+
+/* Class = "UILabel"; text = "rate"; ObjectID = "k19-4F-QQP"; */
+"k19-4F-QQP.text" = "rate";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lFU-Fs-ffS"; */
+"lFU-Fs-ffS.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "start"; ObjectID = "p57-kn-dNf"; */
+"p57-kn-dNf.normalTitle" = "start";
+
+/* Class = "UILabel"; text = "AVAudioPlayer"; ObjectID = "xJ8-D8-6Xc"; */
+"xJ8-D8-6Xc.text" = "AVAudioPlayer";
+
+/* Class = "UIButton"; normalTitle = "stop"; ObjectID = "ybL-VU-fz8"; */
+"ybL-VU-fz8.normalTitle" = "stop";

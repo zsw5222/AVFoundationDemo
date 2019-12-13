@@ -8,6 +8,7 @@
 
 #import "AudioPlayController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
  
 
 @interface AudioPlayController ()<AVAudioPlayerDelegate>
@@ -20,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self setSession];
     
     NSURL* totoUrl = [[NSBundle mainBundle] URLForResource:@"toto" withExtension:@"mp3"];

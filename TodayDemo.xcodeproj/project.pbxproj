@@ -21,6 +21,15 @@
 		CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */; };
 		CEBFD2C2238F987A00F993E8 /* beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C1238F987A00F993E8 /* beach.mp3 */; };
 		CEBFD2C4238F988100F993E8 /* toto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C3238F988100F993E8 /* toto.mp3 */; };
+		CEC00B2223A35CFE008F3FBC /* Charlie The Unicorn.m4v in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B1C23A35CFE008F3FBC /* Charlie The Unicorn.m4v */; };
+		CEC00B2323A35CFE008F3FBC /* Hubblecast.mov in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B1D23A35CFE008F3FBC /* Hubblecast.mov */; };
+		CEC00B2423A35CFE008F3FBC /* 02 Demo ID3v2.2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B1E23A35CFE008F3FBC /* 02 Demo ID3v2.2.mp3 */; };
+		CEC00B2523A35CFE008F3FBC /* 03 Demo ID3v2.3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B1F23A35CFE008F3FBC /* 03 Demo ID3v2.3.mp3 */; };
+		CEC00B2623A35CFE008F3FBC /* 01 Demo AAC.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B2023A35CFE008F3FBC /* 01 Demo AAC.m4a */; };
+		CEC00B2723A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B2123A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 */; };
+		CEC00B2A23A373BC008F3FBC /* AVMetadataItem+THAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */; };
+		CEEC36F223A21BB1001A4203 /* WJAVPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */; };
+		CEF0B5D7239DF1C4005C139A /* AVAssetIntroduceCon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF0B5D6239DF1C4005C139A /* AVAssetIntroduceCon.m */; };
 		CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +77,18 @@
 		CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayController.m; sourceTree = "<group>"; };
 		CEBFD2C1238F987A00F993E8 /* beach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beach.mp3; sourceTree = "<group>"; };
 		CEBFD2C3238F988100F993E8 /* toto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = toto.mp3; sourceTree = "<group>"; };
+		CEC00B1C23A35CFE008F3FBC /* Charlie The Unicorn.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Charlie The Unicorn.m4v"; sourceTree = "<group>"; };
+		CEC00B1D23A35CFE008F3FBC /* Hubblecast.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = Hubblecast.mov; sourceTree = "<group>"; };
+		CEC00B1E23A35CFE008F3FBC /* 02 Demo ID3v2.2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02 Demo ID3v2.2.mp3"; sourceTree = "<group>"; };
+		CEC00B1F23A35CFE008F3FBC /* 03 Demo ID3v2.3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03 Demo ID3v2.3.mp3"; sourceTree = "<group>"; };
+		CEC00B2023A35CFE008F3FBC /* 01 Demo AAC.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01 Demo AAC.m4a"; sourceTree = "<group>"; };
+		CEC00B2123A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "04 Demo ID3v2.4.mp3"; sourceTree = "<group>"; };
+		CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVMetadataItem+THAdditions.m"; sourceTree = "<group>"; };
+		CEC00B2923A373BC008F3FBC /* AVMetadataItem+THAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVMetadataItem+THAdditions.h"; sourceTree = "<group>"; };
+		CEEC36F023A21BB1001A4203 /* WJAVPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJAVPlayerController.h; sourceTree = "<group>"; };
+		CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJAVPlayerController.m; sourceTree = "<group>"; };
+		CEF0B5D5239DF1C4005C139A /* AVAssetIntroduceCon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVAssetIntroduceCon.h; sourceTree = "<group>"; };
+		CEF0B5D6239DF1C4005C139A /* AVAssetIntroduceCon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVAssetIntroduceCon.m; sourceTree = "<group>"; };
 		CEF29C83238D15C700BAF058 /* SpeechVoiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpeechVoiceController.h; sourceTree = "<group>"; };
 		CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeechVoiceController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +141,7 @@
 		CE084AD723878B430088E520 /* TodayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CEC00B1B23A35CFE008F3FBC /* Media */,
 				CE6F20392397A65000081EC8 /* category */,
 				CEBFD2C3238F988100F993E8 /* toto.mp3 */,
 				CEBFD2C1238F987A00F993E8 /* beach.mp3 */,
@@ -140,6 +162,10 @@
 				CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */,
 				CE51AA7F2396592800DB0F70 /* AudioRecoderController.h */,
 				CE51AA802396592800DB0F70 /* AudioRecoderController.m */,
+				CEF0B5D5239DF1C4005C139A /* AVAssetIntroduceCon.h */,
+				CEF0B5D6239DF1C4005C139A /* AVAssetIntroduceCon.m */,
+				CEEC36F023A21BB1001A4203 /* WJAVPlayerController.h */,
+				CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */,
 			);
 			path = TodayDemo;
 			sourceTree = "<group>";
@@ -165,10 +191,25 @@
 		CE6F20392397A65000081EC8 /* category */ = {
 			isa = PBXGroup;
 			children = (
+				CEC00B2923A373BC008F3FBC /* AVMetadataItem+THAdditions.h */,
+				CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */,
 				CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */,
 				CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */,
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		CEC00B1B23A35CFE008F3FBC /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				CEC00B1C23A35CFE008F3FBC /* Charlie The Unicorn.m4v */,
+				CEC00B1D23A35CFE008F3FBC /* Hubblecast.mov */,
+				CEC00B1E23A35CFE008F3FBC /* 02 Demo ID3v2.2.mp3 */,
+				CEC00B1F23A35CFE008F3FBC /* 03 Demo ID3v2.3.mp3 */,
+				CEC00B2023A35CFE008F3FBC /* 01 Demo AAC.m4a */,
+				CEC00B2123A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +315,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC00B2523A35CFE008F3FBC /* 03 Demo ID3v2.3.mp3 in Resources */,
+				CEC00B2423A35CFE008F3FBC /* 02 Demo ID3v2.2.mp3 in Resources */,
 				CEBFD2C4238F988100F993E8 /* toto.mp3 in Resources */,
+				CEC00B2223A35CFE008F3FBC /* Charlie The Unicorn.m4v in Resources */,
 				CE084AE823878B450088E520 /* LaunchScreen.storyboard in Resources */,
 				CE084AE523878B450088E520 /* Assets.xcassets in Resources */,
+				CEC00B2623A35CFE008F3FBC /* 01 Demo AAC.m4a in Resources */,
 				CEBFD2C2238F987A00F993E8 /* beach.mp3 in Resources */,
+				CEC00B2723A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 in Resources */,
+				CEC00B2323A35CFE008F3FBC /* Hubblecast.mov in Resources */,
 				CE084AE323878B430088E520 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,13 +350,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF0B5D7239DF1C4005C139A /* AVAssetIntroduceCon.m in Sources */,
 				CE084AE023878B430088E520 /* ViewController.m in Sources */,
 				CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */,
 				CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */,
 				CE084ADA23878B430088E520 /* AppDelegate.m in Sources */,
 				CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */,
+				CEEC36F223A21BB1001A4203 /* WJAVPlayerController.m in Sources */,
 				CE084AEB23878B450088E520 /* main.m in Sources */,
 				CE084ADD23878B430088E520 /* SceneDelegate.m in Sources */,
+				CEC00B2A23A373BC008F3FBC /* AVMetadataItem+THAdditions.m in Sources */,
 				CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
