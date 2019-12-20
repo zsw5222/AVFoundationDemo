@@ -69,7 +69,7 @@
         NSLog(@"formate===%@",formatkey);
         [metaItemsArr addObject:  [urlAsset metadataForFormat:formatkey]];
     }
-    NSArray* metaItems = metaItemsArr[0];
+    NSArray* metaItems = metaItemsArr[1];
     
     NSString* keySpace = AVMetadataKeySpaceiTunes;
     NSString* artistKey = AVMetadataiTunesMetadataKeyArtist;
@@ -79,6 +79,7 @@
     NSArray* albumItems = [AVMetadataItem metadataItemsFromArray:metaItems withKey:albumKey keySpace:keySpace];
     //ios8 以后建议通过标识符获取
     NSArray* artistItems  = [AVMetadataItem metadataItemsFromArray:metaItems filteredByIdentifier:AVMetadataIdentifieriTunesMetadataArtist];
+    
     
     if (artistItems.count>0) {
         //通常只有一个,
@@ -90,6 +91,9 @@
         AVMetadataItem *albumItem = [albumItems firstObject];
         NSLog(@" ---albumItem--\n key===%@,comomkey==%@,value==%@ \n",albumItem.key,albumItem.commonKey,albumItem.value);
     }
+    //
+//    AVMutableMetadataItem
+//    AVAssetExportSession:
     
 }
 

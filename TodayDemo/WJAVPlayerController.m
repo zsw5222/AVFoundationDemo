@@ -7,6 +7,7 @@
 //
 
 #import "WJAVPlayerController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface WJAVPlayerController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
