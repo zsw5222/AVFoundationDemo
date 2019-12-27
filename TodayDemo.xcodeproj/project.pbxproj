@@ -18,6 +18,7 @@
 		CE084B0023878B450088E520 /* TodayDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AFF23878B450088E520 /* TodayDemoUITests.m */; };
 		CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE51AA802396592800DB0F70 /* AudioRecoderController.m */; };
 		CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */; };
+		CE8867F123B357DA0038086D /* AVAsset+WJAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8867F023B357DA0038086D /* AVAsset+WJAsset.m */; };
 		CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */; };
 		CEBFD2C2238F987A00F993E8 /* beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C1238F987A00F993E8 /* beach.mp3 */; };
 		CEBFD2C4238F988100F993E8 /* toto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C3238F988100F993E8 /* toto.mp3 */; };
@@ -73,6 +74,8 @@
 		CE51AA802396592800DB0F70 /* AudioRecoderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecoderController.m; sourceTree = "<group>"; };
 		CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WH.h"; sourceTree = "<group>"; };
 		CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WH.m"; sourceTree = "<group>"; };
+		CE8867EF23B357DA0038086D /* AVAsset+WJAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAsset+WJAsset.h"; sourceTree = "<group>"; };
+		CE8867F023B357DA0038086D /* AVAsset+WJAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+WJAsset.m"; sourceTree = "<group>"; };
 		CEBFD2BE238F62E000F993E8 /* AudioPlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayController.h; sourceTree = "<group>"; };
 		CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayController.m; sourceTree = "<group>"; };
 		CEBFD2C1238F987A00F993E8 /* beach.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beach.mp3; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */,
 				CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */,
 				CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */,
+				CE8867EF23B357DA0038086D /* AVAsset+WJAsset.h */,
+				CE8867F023B357DA0038086D /* AVAsset+WJAsset.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				CEF0B5D7239DF1C4005C139A /* AVAssetIntroduceCon.m in Sources */,
 				CE084AE023878B430088E520 /* ViewController.m in Sources */,
 				CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */,
+				CE8867F123B357DA0038086D /* AVAsset+WJAsset.m in Sources */,
 				CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */,
 				CE084ADA23878B430088E520 /* AppDelegate.m in Sources */,
 				CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */,

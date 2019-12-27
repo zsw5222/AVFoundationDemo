@@ -202,6 +202,8 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uUG-Im-wBT">
                                 <rect key="frame" x="28" y="449" width="346" height="31"/>
                                 <connections>
+                                    <action selector="slideEnd:" destination="Fz0-jo-M5s" eventType="touchUpInside" id="RQw-TA-tDf"/>
+                                    <action selector="sliderBegin:" destination="Fz0-jo-M5s" eventType="touchDown" id="mLb-eJ-ldv"/>
                                     <action selector="timeChange:" destination="Fz0-jo-M5s" eventType="valueChanged" id="NWU-5q-dFq"/>
                                 </connections>
                             </slider>
@@ -225,6 +227,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="g2D-Se-bXZ"/>
                     <connections>
+                        <outlet property="playBtn" destination="zwm-SM-rOu" id="G5d-bo-XUV"/>
                         <outlet property="playView" destination="vno-SU-nip" id="fnt-Cc-jou"/>
                         <outlet property="timeSlider" destination="uUG-Im-wBT" id="KRn-KS-UyU"/>
                         <outlet property="titleLab" destination="zqG-Wa-G6t" id="ecv-ay-s7p"/>
@@ -458,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvc-O9-sNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="-1236"/>
+            <point key="canvasLocation" x="-657" y="-1430"/>
         </scene>
     </scenes>
     <resources>

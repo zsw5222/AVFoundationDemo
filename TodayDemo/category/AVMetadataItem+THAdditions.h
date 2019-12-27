@@ -28,5 +28,7 @@
 @interface AVMetadataItem (THAdditions)
 
 @property (readonly) NSString *keyString;
+@property (readonly) NSString *title;
+
 
 @end
