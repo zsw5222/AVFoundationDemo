@@ -10,7 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AVAsset+WJAsset.h"
 
-@interface WJAVPlayerController ()
+@interface WJAVPlayerController ()<UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UIView *playView;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
@@ -21,13 +22,18 @@
 @property (strong, nonatomic) id playTimeObserver;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (assign,nonatomic) CGFloat lastPlayRate;
+@property (strong, nonatomic)AVAssetImageGenerator *imgGenerator;
+@property (nonatomic,strong)NSArray *imgsArr;
+@property (weak, nonatomic) IBOutlet UITableView *tabV;
 
+ 
 @end
 
 @implementation WJAVPlayerController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     [self creatPlayer];
     
@@ -43,7 +49,7 @@
 }
 
 - (void)creatPlayer{
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"Charlie The Unicorn" ofType:@"m4v"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"hubblecast.m4v" ofType:nil];
     NSURL *url = [NSURL fileURLWithPath:path];
     AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
     NSArray *assetKeys = @[@"duration",@"tracks",@"commonMetadata"];
@@ -130,7 +136,71 @@
     [self.player setRate:0];
     [self.player seekToTime:kCMTimeZero];
     self.playBtn.selected = NO;
+    
+    [self creatThumbail];
+    [self loadMediaSelection];
+
+}
+//生成截图
+- (void)creatThumbail{
+    
+    self.imgGenerator = [AVAssetImageGenerator assetImageGeneratorWithAsset:self.asset];
+    //固定宽度 ，高度自动缩放
+    self.imgGenerator.maximumSize = CGSizeMake(200, 0);
+    
+ 
+    
+    CMTime duration = self.asset.duration;
+    CMTimeValue perValue = duration.value/10;
+    NSMutableArray *timesArr = [NSMutableArray array];
+    for (int i = 0; i < 10 ; i++) {
+        CMTime tmpT = CMTimeMake(perValue*i, duration.timescale);
+        [timesArr addObject: [NSValue valueWithCMTime:tmpT]];
+    }
+   __block NSMutableArray *imgArr = [NSMutableArray array];
+ 
+   [self.imgGenerator generateCGImagesAsynchronouslyForTimes:timesArr completionHandler:^(CMTime requestedTime, CGImageRef  _Nullable image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * _Nullable error) {
+       if (result == AVAssetImageGeneratorSucceeded) {
+           UIImage *img = [UIImage imageWithCGImage:image];
+           [imgArr addObject:img];
+       }
+       if (imgArr.count == timesArr.count) {
+               self.imgsArr = imgArr;
+           dispatch_async(dispatch_get_main_queue(), ^{
+              [self.tabV reloadData];
+           });
+       
+
+       }
+    }];
+    
+}
+//加载字幕
+- (void)loadMediaSelection{
+    NSArray*characts = self.asset.availableMediaCharacteristicsWithMediaSelectionOptions;
+    for (NSString*c in characts) {
+        NSLog(@"charact---%@",characts);
+        AVMediaSelectionGroup *group = [self.asset mediaSelectionGroupForMediaCharacteristic:c];
+        for (AVMediaSelectionOption *option in group.options) {
+            NSLog(@"option name--%@",option.displayName);
+        }
+        AVMediaSelectionGroup *languageGroup = [self.asset mediaSelectionGroupForMediaCharacteristic:AVMediaCharacteristicLegible];
+        AVMediaSelectionOption *optin =   languageGroup.options.firstObject;
+        [self.player.currentItem selectMediaOption:optin inMediaSelectionGroup:languageGroup];
+        
+    }
 }
 
+
+#pragma mark--- tabview
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.imgsArr.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell*cell = [tableView dequeueReusableCellWithIdentifier:@"thumb"];
+    UIImageView*imgV = [cell viewWithTag:123];
+    imgV.image = self.imgsArr[indexPath.row];
+    return cell;
+}
 
 @end

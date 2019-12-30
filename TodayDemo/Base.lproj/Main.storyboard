@@ -207,16 +207,50 @@
                                     <action selector="timeChange:" destination="Fz0-jo-M5s" eventType="valueChanged" id="NWU-5q-dFq"/>
                                 </connections>
                             </slider>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8l-8Z-3WJ">
+                                <rect key="frame" x="10" y="499" width="394" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Dc1-Bh-vKY"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="thumb" rowHeight="160" id="S3W-Em-7uR">
+                                        <rect key="frame" x="0.0" y="28" width="394" height="160"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S3W-Em-7uR" id="URK-Wb-HSk">
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="123" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9fm-MT-nv6">
+                                                    <rect key="frame" x="20" y="11" width="354" height="138"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9fm-MT-nv6" secondAttribute="bottom" id="4NG-nY-Frx"/>
+                                                <constraint firstItem="9fm-MT-nv6" firstAttribute="leading" secondItem="URK-Wb-HSk" secondAttribute="leadingMargin" id="re2-JV-jfn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9fm-MT-nv6" secondAttribute="trailing" id="vCg-Nd-ciV"/>
+                                                <constraint firstItem="9fm-MT-nv6" firstAttribute="top" secondItem="URK-Wb-HSk" secondAttribute="topMargin" id="wNU-w2-4FV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fz0-jo-M5s" id="jLu-Wd-nan"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Vnc-9g-E0G" firstAttribute="trailing" secondItem="uUG-Im-wBT" secondAttribute="trailing" constant="42" id="2BP-bS-0F7"/>
                             <constraint firstItem="zqG-Wa-G6t" firstAttribute="centerX" secondItem="2YB-cD-04Y" secondAttribute="centerX" id="39C-bU-fiu"/>
+                            <constraint firstItem="j8l-8Z-3WJ" firstAttribute="top" secondItem="uUG-Im-wBT" secondAttribute="bottom" constant="20" id="39R-c0-V7w"/>
                             <constraint firstItem="Vnc-9g-E0G" firstAttribute="trailing" secondItem="vno-SU-nip" secondAttribute="trailing" id="6Qh-5v-Vz4"/>
                             <constraint firstItem="zwm-SM-rOu" firstAttribute="top" secondItem="vno-SU-nip" secondAttribute="bottom" constant="25" id="DaK-kd-dt4"/>
                             <constraint firstItem="zqG-Wa-G6t" firstAttribute="top" secondItem="Vnc-9g-E0G" secondAttribute="top" constant="15" id="H5a-o9-6m6"/>
+                            <constraint firstItem="Vnc-9g-E0G" firstAttribute="trailing" secondItem="j8l-8Z-3WJ" secondAttribute="trailing" constant="10" id="HNa-Q0-Bvj"/>
                             <constraint firstItem="uUG-Im-wBT" firstAttribute="top" secondItem="zwm-SM-rOu" secondAttribute="bottom" constant="17" id="IFS-K5-Ica"/>
                             <constraint firstItem="vno-SU-nip" firstAttribute="top" secondItem="zqG-Wa-G6t" secondAttribute="bottom" constant="8" id="MJQ-i8-ZaG"/>
+                            <constraint firstItem="j8l-8Z-3WJ" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="10" id="PiQ-19-ZZF"/>
                             <constraint firstItem="zwm-SM-rOu" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="30" id="Tq5-vW-N6W"/>
                             <constraint firstItem="oiY-kW-KBY" firstAttribute="top" secondItem="vno-SU-nip" secondAttribute="bottom" constant="25" id="V76-r2-HOL"/>
                             <constraint firstItem="uUG-Im-wBT" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="30" id="kkI-B7-ADT"/>
@@ -229,6 +263,7 @@
                     <connections>
                         <outlet property="playBtn" destination="zwm-SM-rOu" id="G5d-bo-XUV"/>
                         <outlet property="playView" destination="vno-SU-nip" id="fnt-Cc-jou"/>
+                        <outlet property="tabV" destination="j8l-8Z-3WJ" id="9Es-L2-m0L"/>
                         <outlet property="timeSlider" destination="uUG-Im-wBT" id="KRn-KS-UyU"/>
                         <outlet property="titleLab" destination="zqG-Wa-G6t" id="ecv-ay-s7p"/>
                     </connections>
