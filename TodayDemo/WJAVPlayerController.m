@@ -9,6 +9,7 @@
 #import "WJAVPlayerController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AVAsset+WJAsset.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface WJAVPlayerController ()<UITableViewDataSource>
 
@@ -41,6 +42,7 @@
     
     [self playEndNotification];
     
+    [self addAirPlay];
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self.playEndObserver];
@@ -191,6 +193,14 @@
     }
 }
 
+- (void)addAirPlay{
+    MPVolumeView *vv = [[MPVolumeView alloc] init];
+    vv.frame = CGRectMake(20, 700, 200, 59);
+    vv.showsVolumeSlider = NO;
+    vv.showsRouteButton = YES;
+    [self.view addSubview:vv];
+   
+}
 
 #pragma mark--- tabview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
