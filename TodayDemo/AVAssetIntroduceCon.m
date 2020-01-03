@@ -94,6 +94,8 @@
     //
 //    AVMutableMetadataItem
 //    AVAssetExportSession:
+     
+//    AVTimedMetadataGroup
     
 }
 

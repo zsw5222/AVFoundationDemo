@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AVAsset+WJAsset.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "WJAVPlayerViewController.h"
 
 @interface WJAVPlayerController ()<UITableViewDataSource>
 
@@ -211,6 +212,13 @@
     UIImageView*imgV = [cell viewWithTag:123];
     imgV.image = self.imgsArr[indexPath.row];
     return cell;
+    
+}
+- (IBAction)toPlayController:(id)sender {
+//    UIViewController*con = [UIViewController new];
+    WJAVPlayerViewController *con = [WJAVPlayerViewController new];
+    
+    [self.navigationController pushViewController: con animated:YES  ];
 }
 
 @end

@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ceb-J9-g7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1641" y="-227"/>
+            <point key="canvasLocation" x="-1697" y="-233"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="axS-1F-wlU">
@@ -120,20 +120,41 @@
                                             <segue destination="Fz0-jo-M5s" kind="show" id="rth-pv-FxD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6oW-Di-kP5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="wfc-kJ-6gI" style="IBUITableViewCellStyleDefault" id="6oW-Di-kP5">
                                         <rect key="frame" x="0.0" y="202" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6oW-Di-kP5" id="10Y-IS-hZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="device capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wfc-kJ-6gI">
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8Gk-DE-PSS" kind="show" trigger="accessoryAction" id="MzH-eo-qeh"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HPt-9b-vi4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="M24-3Q-JWf" style="IBUITableViewCellStyleDefault" id="HPt-9b-vi4">
                                         <rect key="frame" x="0.0" y="245.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HPt-9b-vi4" id="X3w-LR-Jvj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M24-3Q-JWf">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -149,6 +170,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KO2-28-kDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1016" y="-227"/>
+        </scene>
+        <!--Capture Device Controller-->
+        <scene sceneID="voI-sE-0eQ">
+            <objects>
+                <viewController id="8Gk-DE-PSS" customClass="WJCaptureDeviceController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rSb-U4-mhB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="MCe-fn-cdS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ppV-Cm-CfX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vS7-FM-vMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="100"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="2K2-eI-3ZD">
@@ -238,6 +275,13 @@
                                     <outlet property="dataSource" destination="Fz0-jo-M5s" id="jLu-Wd-nan"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euY-EP-K2h">
+                                <rect key="frame" x="111" y="760" width="142" height="30"/>
+                                <state key="normal" title="to playviewcontroller"/>
+                                <connections>
+                                    <action selector="toPlayController:" destination="Fz0-jo-M5s" eventType="touchUpInside" id="19g-XV-9uE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -253,8 +297,10 @@
                             <constraint firstItem="j8l-8Z-3WJ" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="10" id="PiQ-19-ZZF"/>
                             <constraint firstItem="zwm-SM-rOu" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="30" id="Tq5-vW-N6W"/>
                             <constraint firstItem="oiY-kW-KBY" firstAttribute="top" secondItem="vno-SU-nip" secondAttribute="bottom" constant="25" id="V76-r2-HOL"/>
+                            <constraint firstItem="euY-EP-K2h" firstAttribute="top" secondItem="j8l-8Z-3WJ" secondAttribute="bottom" constant="61" id="fRN-hS-DeB"/>
                             <constraint firstItem="uUG-Im-wBT" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="30" id="kkI-B7-ADT"/>
                             <constraint firstItem="Vnc-9g-E0G" firstAttribute="trailing" secondItem="oiY-kW-KBY" secondAttribute="trailing" constant="42" id="m5o-Mf-Wfp"/>
+                            <constraint firstItem="euY-EP-K2h" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" constant="111" id="o63-Rt-wOQ"/>
                             <constraint firstItem="vno-SU-nip" firstAttribute="leading" secondItem="Vnc-9g-E0G" secondAttribute="leading" id="qYX-NM-iun"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vnc-9g-E0G"/>
@@ -270,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="joX-vM-eJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-352.17391304347831" y="128.57142857142856"/>
+            <point key="canvasLocation" x="71" y="-465"/>
         </scene>
         <!--Audio Recoder Controller-->
         <scene sceneID="je8-we-7Og">

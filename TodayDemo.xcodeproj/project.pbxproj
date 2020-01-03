@@ -18,6 +18,7 @@
 		CE084B0023878B450088E520 /* TodayDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084AFF23878B450088E520 /* TodayDemoUITests.m */; };
 		CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE51AA802396592800DB0F70 /* AudioRecoderController.m */; };
 		CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */; };
+		CE86B42123BD99B300406207 /* WJAVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE86B42023BD99B300406207 /* WJAVPlayerViewController.m */; };
 		CE8867F123B357DA0038086D /* AVAsset+WJAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8867F023B357DA0038086D /* AVAsset+WJAsset.m */; };
 		CEBFD2C0238F62E000F993E8 /* AudioPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBFD2BF238F62E000F993E8 /* AudioPlayController.m */; };
 		CEBFD2C2238F987A00F993E8 /* beach.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEBFD2C1238F987A00F993E8 /* beach.mp3 */; };
@@ -30,6 +31,7 @@
 		CEC00B2723A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC00B2123A35CFE008F3FBC /* 04 Demo ID3v2.4.mp3 */; };
 		CEC00B2A23A373BC008F3FBC /* AVMetadataItem+THAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */; };
 		CED901D723B9F1F300DEE790 /* hubblecast.m4v in Resources */ = {isa = PBXBuildFile; fileRef = CED901D623B9F1F300DEE790 /* hubblecast.m4v */; };
+		CEEA99B823BEE4B500365CFE /* WJCaptureDeviceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEA99B723BEE4B500365CFE /* WJCaptureDeviceController.m */; };
 		CEEC36F223A21BB1001A4203 /* WJAVPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */; };
 		CEF0B5D7239DF1C4005C139A /* AVAssetIntroduceCon.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF0B5D6239DF1C4005C139A /* AVAssetIntroduceCon.m */; };
 		CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF29C84238D15C700BAF058 /* SpeechVoiceController.m */; };
@@ -75,6 +77,8 @@
 		CE51AA802396592800DB0F70 /* AudioRecoderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioRecoderController.m; sourceTree = "<group>"; };
 		CE6F203A2397A6D200081EC8 /* UIViewController+WH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WH.h"; sourceTree = "<group>"; };
 		CE6F203B2397A6D200081EC8 /* UIViewController+WH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WH.m"; sourceTree = "<group>"; };
+		CE86B41F23BD99B300406207 /* WJAVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJAVPlayerViewController.h; sourceTree = "<group>"; };
+		CE86B42023BD99B300406207 /* WJAVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJAVPlayerViewController.m; sourceTree = "<group>"; };
 		CE8867EF23B357DA0038086D /* AVAsset+WJAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAsset+WJAsset.h"; sourceTree = "<group>"; };
 		CE8867F023B357DA0038086D /* AVAsset+WJAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAsset+WJAsset.m"; sourceTree = "<group>"; };
 		CEBFD2BE238F62E000F993E8 /* AudioPlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayController.h; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 		CEC00B2823A373BB008F3FBC /* AVMetadataItem+THAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVMetadataItem+THAdditions.m"; sourceTree = "<group>"; };
 		CEC00B2923A373BC008F3FBC /* AVMetadataItem+THAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVMetadataItem+THAdditions.h"; sourceTree = "<group>"; };
 		CED901D623B9F1F300DEE790 /* hubblecast.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = hubblecast.m4v; sourceTree = "<group>"; };
+		CEEA99B623BEE4B500365CFE /* WJCaptureDeviceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJCaptureDeviceController.h; sourceTree = "<group>"; };
+		CEEA99B723BEE4B500365CFE /* WJCaptureDeviceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJCaptureDeviceController.m; sourceTree = "<group>"; };
 		CEEC36F023A21BB1001A4203 /* WJAVPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJAVPlayerController.h; sourceTree = "<group>"; };
 		CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJAVPlayerController.m; sourceTree = "<group>"; };
 		CEF0B5D5239DF1C4005C139A /* AVAssetIntroduceCon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVAssetIntroduceCon.h; sourceTree = "<group>"; };
@@ -171,6 +177,10 @@
 				CEF0B5D6239DF1C4005C139A /* AVAssetIntroduceCon.m */,
 				CEEC36F023A21BB1001A4203 /* WJAVPlayerController.h */,
 				CEEC36F123A21BB1001A4203 /* WJAVPlayerController.m */,
+				CE86B41F23BD99B300406207 /* WJAVPlayerViewController.h */,
+				CE86B42023BD99B300406207 /* WJAVPlayerViewController.m */,
+				CEEA99B623BEE4B500365CFE /* WJCaptureDeviceController.h */,
+				CEEA99B723BEE4B500365CFE /* WJCaptureDeviceController.m */,
 			);
 			path = TodayDemo;
 			sourceTree = "<group>";
@@ -360,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF0B5D7239DF1C4005C139A /* AVAssetIntroduceCon.m in Sources */,
+				CEEA99B823BEE4B500365CFE /* WJCaptureDeviceController.m in Sources */,
 				CE084AE023878B430088E520 /* ViewController.m in Sources */,
 				CEF29C85238D15C700BAF058 /* SpeechVoiceController.m in Sources */,
 				CE8867F123B357DA0038086D /* AVAsset+WJAsset.m in Sources */,
@@ -368,6 +379,7 @@
 				CE51AA812396592800DB0F70 /* AudioRecoderController.m in Sources */,
 				CEEC36F223A21BB1001A4203 /* WJAVPlayerController.m in Sources */,
 				CE084AEB23878B450088E520 /* main.m in Sources */,
+				CE86B42123BD99B300406207 /* WJAVPlayerViewController.m in Sources */,
 				CE084ADD23878B430088E520 /* SceneDelegate.m in Sources */,
 				CEC00B2A23A373BC008F3FBC /* AVMetadataItem+THAdditions.m in Sources */,
 				CE6F203C2397A6D200081EC8 /* UIViewController+WH.m in Sources */,
