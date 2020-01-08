@@ -137,7 +137,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="8Gk-DE-PSS" kind="show" trigger="accessoryAction" id="MzH-eo-qeh"/>
+                                            <segue destination="8Gk-DE-PSS" kind="show" id="HLi-Mj-pWt"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="M24-3Q-JWf" style="IBUITableViewCellStyleDefault" id="HPt-9b-vi4">
@@ -178,14 +178,52 @@
                     <view key="view" contentMode="scaleToFill" id="rSb-U4-mhB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hP1-hh-bKY" customClass="WJCapturePreviewView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ur3-Is-ixx">
+                                <rect key="frame" x="0.0" y="108" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtS-ac-dh4">
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                                        <state key="normal" title="切换镜头">
+                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="switchCamera:" destination="8Gk-DE-PSS" eventType="touchUpInside" id="4k1-J4-JyS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-Xk-fAx">
+                                        <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="t0d-qz-6jQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ur3-Is-ixx" firstAttribute="leading" secondItem="MCe-fn-cdS" secondAttribute="leading" id="PU7-83-GBS"/>
+                            <constraint firstItem="ur3-Is-ixx" firstAttribute="trailing" secondItem="MCe-fn-cdS" secondAttribute="trailing" id="WE8-7B-eQu"/>
+                            <constraint firstItem="ur3-Is-ixx" firstAttribute="top" secondItem="MCe-fn-cdS" secondAttribute="top" constant="20" id="cI1-sk-rhu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MCe-fn-cdS"/>
                     </view>
                     <navigationItem key="navigationItem" id="ppV-Cm-CfX"/>
+                    <connections>
+                        <outlet property="capView" destination="hP1-hh-bKY" id="qey-VN-7fE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vS7-FM-vMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="100"/>
+            <point key="canvasLocation" x="-252.17391304347828" y="168.75"/>
         </scene>
         <!--Player Controller-->
         <scene sceneID="2K2-eI-3ZD">
