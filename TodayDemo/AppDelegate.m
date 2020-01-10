@@ -21,7 +21,9 @@
     
 }
 
- 
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+   
+}
  
 
 @end
