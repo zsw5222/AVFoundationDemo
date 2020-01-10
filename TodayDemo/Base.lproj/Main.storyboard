@@ -207,18 +207,53 @@
                                     <constraint firstAttribute="height" constant="50" id="t0d-qz-6jQ"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-y8-bAx">
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cQ6-AE-GqE">
+                                        <rect key="frame" x="26" y="12" width="76" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="N93-s5-TFa"/>
+                                            <constraint firstAttribute="width" constant="76" id="OW0-sn-Zx0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eX-ch-SOY">
+                                        <rect key="frame" x="142" y="20" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="2ei-Ux-S2c"/>
+                                            <constraint firstAttribute="width" constant="45" id="7nr-DK-VEb"/>
+                                        </constraints>
+                                        <state key="normal" title="拍照"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="8Gk-DE-PSS" eventType="touchUpInside" id="JLb-XV-Yq4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Zqk-Jj-zwb"/>
+                                    <constraint firstItem="8eX-ch-SOY" firstAttribute="top" secondItem="qVX-y8-bAx" secondAttribute="top" constant="20" id="h1X-dc-kgh"/>
+                                    <constraint firstItem="8eX-ch-SOY" firstAttribute="leading" secondItem="cQ6-AE-GqE" secondAttribute="trailing" constant="40" id="nZt-Ca-G1n"/>
+                                    <constraint firstItem="cQ6-AE-GqE" firstAttribute="leading" secondItem="qVX-y8-bAx" secondAttribute="leading" constant="26" id="ofT-pH-vde"/>
+                                    <constraint firstItem="cQ6-AE-GqE" firstAttribute="top" secondItem="qVX-y8-bAx" secondAttribute="top" constant="12" id="w1S-Fe-9oL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="qVX-y8-bAx" firstAttribute="leading" secondItem="MCe-fn-cdS" secondAttribute="leading" id="5O7-Tb-wyB"/>
                             <constraint firstItem="ur3-Is-ixx" firstAttribute="leading" secondItem="MCe-fn-cdS" secondAttribute="leading" id="PU7-83-GBS"/>
                             <constraint firstItem="ur3-Is-ixx" firstAttribute="trailing" secondItem="MCe-fn-cdS" secondAttribute="trailing" id="WE8-7B-eQu"/>
+                            <constraint firstItem="MCe-fn-cdS" firstAttribute="trailing" secondItem="qVX-y8-bAx" secondAttribute="trailing" id="aa8-f6-QwS"/>
                             <constraint firstItem="ur3-Is-ixx" firstAttribute="top" secondItem="MCe-fn-cdS" secondAttribute="top" constant="20" id="cI1-sk-rhu"/>
+                            <constraint firstAttribute="bottom" secondItem="qVX-y8-bAx" secondAttribute="bottom" id="pVj-hf-r9K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MCe-fn-cdS"/>
                     </view>
                     <navigationItem key="navigationItem" id="ppV-Cm-CfX"/>
                     <connections>
                         <outlet property="capView" destination="hP1-hh-bKY" id="qey-VN-7fE"/>
+                        <outlet property="tmpImgV" destination="cQ6-AE-GqE" id="y07-Hz-bjp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vS7-FM-vMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

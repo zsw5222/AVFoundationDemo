@@ -16,14 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)tapedToFoucuseAtPoint:(CGPoint)point;
 -(void)tapedToExposeAtPoint:(CGPoint)point;
 -(void)tapedToResetFoucuseAndExpose;
+
 @end
 
 @interface WJCapturePreviewView : UIView
 
 
 @property(nonatomic,strong)AVCaptureSession *session;
-@property(nonatomic,assign)BOOL tapFoucusEnable;
-@property(nonatomic,assign)BOOL tapExposeEnable;
+@property(nonatomic,assign )BOOL tapFoucusEnable ;
+@property(nonatomic,assign )BOOL tapExposeEnable;
+@property(nonatomic,weak)id<WJCapturePreviewDelegate>delegate;
 
 @end
 

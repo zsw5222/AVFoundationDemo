@@ -9,8 +9,10 @@
 #import "WJCaptureDeviceController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "WJCapturePreviewView.h"
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface WJCaptureDeviceController ()
+@interface WJCaptureDeviceController ()<WJCapturePreviewDelegate>
 
 @property(nonatomic,strong)AVCaptureSession* capSession;
 @property(nonatomic,strong)AVCaptureDeviceInput* activeDeviceInput;
@@ -19,14 +21,20 @@
 @property(nonatomic,strong)dispatch_queue_t videoQueue;
 @property (weak, nonatomic) IBOutlet WJCapturePreviewView *capView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *tmpImgV;
 
 @end
+
 
 @implementation WJCaptureDeviceController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.capView.tapExposeEnable = YES;
+    self.capView.tapFoucusEnable = YES;
+    self.capView.delegate = self;
+    
     if ([self creatSession]) {
         self.capView.session = self.capSession;
         [self startSession];
@@ -53,6 +61,7 @@
     if ([seesion canAddInput:deviceInput]) {
         [seesion addInput:deviceInput];
     }
+   
     //麦克风
     AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:audioDevice error:&error];
@@ -66,7 +75,7 @@
     AVCaptureStillImageOutput *output = [[AVCaptureStillImageOutput alloc] init];
     output.outputSettings = @{AVVideoCodecKey:AVVideoCodecTypeJPEG};
     if ([seesion canAddOutput:output]) {
-        [seesion canAddOutput:output];
+        [seesion addOutput:output];
     }
     self.stillImgOutPut = output;
     
@@ -85,6 +94,7 @@
 - (void)startSession{
     if (![self.capSession isRunning]) {
         dispatch_async(self.videoQueue, ^{
+            //会阻塞当前线程 开始失败通知 AVCaptureSessionRuntimeErrorNotification.
             [self.capSession startRunning];
         });
     }
@@ -167,7 +177,180 @@
     }
  
 }
+#pragma mark -CapturePreviewDelegate
+- (void)tapedToFoucuseAtPoint:(CGPoint)point{
+    NSLog(@"focus---");
+    AVCaptureDevice *device = [self activeCamera];
+    if (device.isFocusPointOfInterestSupported && [device isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+        NSError*err;
+        if ( [device lockForConfiguration:&err]) {
+            device.focusPointOfInterest = point;
+            device.focusMode = AVCaptureFocusModeAutoFocus;
+            
+            [device unlockForConfiguration];
+        }else{
+            NSLog(@"lock error --%@",err);
+        }
+    }
+  
+}
+ 
 
+//自动曝光
+- (void)tapedToExposeAtPoint:(CGPoint)point{
+     NSLog(@"expose---");
+    AVCaptureDevice *device = [self activeCamera];
+    AVCaptureExposureMode exposeModel = AVCaptureExposureModeContinuousAutoExposure;
+    if (device.isExposurePointOfInterestSupported && [device isExposureModeSupported:exposeModel]) {
+        NSError*err;
+        if ( [device lockForConfiguration:&err]) {
+            device.exposurePointOfInterest = point;
+            device.exposureMode = exposeModel;
+            //监听adjustingExposure 找到最合适的曝光点
+            [device addObserver:self forKeyPath:@"adjustingExposure" options:NSKeyValueObservingOptionNew context:nil];
+             
+            
+            [device unlockForConfiguration];
+        }else{
+            NSLog(@"lock error --%@",err);
+        }
+    }
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"adjustingExposure"]) {
+        AVCaptureDevice *device = [self activeCamera];
+        if (!device.adjustingExposure && [device isExposureModeSupported:AVCaptureExposureModeLocked]) {
+            //移除监听
+            [device removeObserver:self forKeyPath:@"adjustingExposure"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error;
+                if ( [device lockForConfiguration:&error]) {
+                    //锁定
+                    device.exposureMode = AVCaptureExposureModeLocked;
+                    [device unlockForConfiguration];
+                }else{
+                    NSLog(@"lock error--%@",error);
+                }
+            });
+ 
+        }
+        
+    }
+}
+//恢复自动对焦和曝光
+- (void)tapedToResetFoucuseAndExpose{
+    
+    AVCaptureDevice *device = [self activeCamera];
+    CGPoint interstPoint = CGPointMake(0.5, 0.5);
+    
+    BOOL canResetFocus  =  device.focusPointOfInterestSupported && [device isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus];
+    BOOL canResetExpose  =  device.exposurePointOfInterestSupported && [device isExposureModeSupported:AVCaptureExposureModeContinuousAutoExposure] ;
+    NSError *error;
+    if ([device lockForConfiguration:&error]) {
+        NSLog(@"重置--");
+        if (canResetFocus) {
+            device.focusPointOfInterest = interstPoint;
+            device.focusMode = AVCaptureFocusModeContinuousAutoFocus;
+        }
+        if (canResetExpose) {
+            device.exposurePointOfInterest = interstPoint;
+            device.exposureMode = AVCaptureExposureModeContinuousAutoExposure;
+        }
+        [device unlockForConfiguration];
+    }else{
+        NSLog(@"reset error--%@",error);
+    }
+    
+}
+- (void)setFlashMode:(AVCaptureFlashMode)flashMode{
+    AVCaptureDevice *device = [self activeCamera];
+    if ([device isFlashModeSupported:flashMode]) {
+        NSError*error;
+        if ([device lockForConfiguration:&error]) {
+             [device setFlashMode:flashMode];
+            [device unlockForConfiguration];
+        }
+        
+    }
+ 
+}
+- (void)setTorchhMode:(AVCaptureTorchMode)torchMode{
+    AVCaptureDevice *device = [self activeCamera];
+    if ([device isTorchModeSupported:torchMode]) {
+        NSError*error;
+        if ([device lockForConfiguration:&error]) {
+             [device setTorchMode:torchMode];
+            [device unlockForConfiguration];
+        }
+    }
+}
+#pragma mark -拍照
 
+- (IBAction)takePhoto:(id)sender {
+    
+
+    
+    AVCaptureConnection *connection = [self.stillImgOutPut connectionWithMediaType:AVMediaTypeVideo];
+    //拍出来的照片方向
+    connection.videoOrientation = [self getCaptureImgOritension];
+ 
+    [self.stillImgOutPut captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
+        if (imageDataSampleBuffer) {
+            NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            [self writeToAlbum: [UIImage imageWithData:data]];
+        }
+    }];
+}
+
+- (void)writeToAlbum:(UIImage*)image{
+    if ([PHPhotoLibrary authorizationStatus] != PHAuthorizationStatusAuthorized ) {
+        
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            
+        }];
+    }
+
+    PHPhotoLibrary *lib = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [lib performChanges:^{
+        
+        PHAssetCollection *collection = [[PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil] firstObject];
+        
+        PHAssetCollectionChangeRequest *assetCollectRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection];
+        
+        PHAssetChangeRequest *assetRequest = [PHAssetChangeRequest  creationRequestForAssetFromImage:image];
+        
+        PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
+      
+        
+        [assetCollectRequest addAssets:@[placeHolder]];
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+              self.tmpImgV.image = image;
+            });
+              
+        }
+    }];
+
+    
+}
+
+//根据界面方向
+- (AVCaptureVideoOrientation)getCaptureImgOritension{
+    
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationPortrait:
+            return AVCaptureVideoOrientationPortrait;
+         case UIDeviceOrientationPortraitUpsideDown:
+            return AVCaptureVideoOrientationPortraitUpsideDown;
+        case UIDeviceOrientationLandscapeLeft:
+            return AVCaptureVideoOrientationLandscapeRight;
+        default:
+            return AVCaptureVideoOrientationLandscapeLeft;
+            break;
+    }
+}
 
 @end
