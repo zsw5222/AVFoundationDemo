@@ -228,10 +228,24 @@
                                             <action selector="takePhoto:" destination="8Gk-DE-PSS" eventType="touchUpInside" id="JLb-XV-Yq4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSx-IJ-Rtb">
+                                        <rect key="frame" x="227" y="28" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Abg-Kw-7Ue"/>
+                                            <constraint firstAttribute="height" constant="50" id="UAu-x9-TI6"/>
+                                        </constraints>
+                                        <state key="normal" title="开始"/>
+                                        <state key="selected" title="停止"/>
+                                        <connections>
+                                            <action selector="recordClick:" destination="8Gk-DE-PSS" eventType="touchUpInside" id="HM5-vm-jGl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="lSx-IJ-Rtb" firstAttribute="top" secondItem="qVX-y8-bAx" secondAttribute="top" constant="28" id="7zl-vk-h2s"/>
                                     <constraint firstAttribute="height" constant="100" id="Zqk-Jj-zwb"/>
+                                    <constraint firstItem="lSx-IJ-Rtb" firstAttribute="leading" secondItem="8eX-ch-SOY" secondAttribute="trailing" constant="40" id="f1N-H4-itI"/>
                                     <constraint firstItem="8eX-ch-SOY" firstAttribute="top" secondItem="qVX-y8-bAx" secondAttribute="top" constant="20" id="h1X-dc-kgh"/>
                                     <constraint firstItem="8eX-ch-SOY" firstAttribute="leading" secondItem="cQ6-AE-GqE" secondAttribute="trailing" constant="40" id="nZt-Ca-G1n"/>
                                     <constraint firstItem="cQ6-AE-GqE" firstAttribute="leading" secondItem="qVX-y8-bAx" secondAttribute="leading" constant="26" id="ofT-pH-vde"/>

@@ -12,7 +12,7 @@
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface WJCaptureDeviceController ()<WJCapturePreviewDelegate>
+@interface WJCaptureDeviceController ()<WJCapturePreviewDelegate,AVCaptureFileOutputRecordingDelegate>
 
 @property(nonatomic,strong)AVCaptureSession* capSession;
 @property(nonatomic,strong)AVCaptureDeviceInput* activeDeviceInput;
@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet WJCapturePreviewView *capView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *tmpImgV;
+
+@property (strong, nonatomic)NSURL* outPutUrl;
 
 @end
 
@@ -71,7 +73,7 @@
     
     //ios 10 and later
 //    AVCapturePhotoOutput* photoOut = [[AVCapturePhotoOutput alloc] init];
-    
+ 
     AVCaptureStillImageOutput *output = [[AVCaptureStillImageOutput alloc] init];
     output.outputSettings = @{AVVideoCodecKey:AVVideoCodecTypeJPEG};
     if ([seesion canAddOutput:output]) {
@@ -262,12 +264,14 @@
     }
     
 }
+ 
 - (void)setFlashMode:(AVCaptureFlashMode)flashMode{
     AVCaptureDevice *device = [self activeCamera];
     if ([device isFlashModeSupported:flashMode]) {
         NSError*error;
         if ([device lockForConfiguration:&error]) {
              [device setFlashMode:flashMode];
+           
             [device unlockForConfiguration];
         }
         
@@ -302,7 +306,7 @@
     }];
 }
 
-- (void)writeToAlbum:(UIImage*)image{
+- (void)writeToAlbum:(id)image{
     if ([PHPhotoLibrary authorizationStatus] != PHAuthorizationStatusAuthorized ) {
         
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
@@ -317,8 +321,13 @@
         PHAssetCollection *collection = [[PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil] firstObject];
         
         PHAssetCollectionChangeRequest *assetCollectRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:collection];
-        
-        PHAssetChangeRequest *assetRequest = [PHAssetChangeRequest  creationRequestForAssetFromImage:image];
+          PHAssetChangeRequest *assetRequest =  nil;
+        if ([image isKindOfClass:[UIImage class]]) {
+          assetRequest = [PHAssetChangeRequest  creationRequestForAssetFromImage:image];
+        }else if([image isKindOfClass:[NSURL class]]){
+           assetRequest = [PHAssetChangeRequest  creationRequestForAssetFromVideoAtFileURL:(NSURL*)image];
+        }
+      
         
         PHObjectPlaceholder *placeHolder = [assetRequest placeholderForCreatedAsset];
       
@@ -328,7 +337,10 @@
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (success) {
             dispatch_async(dispatch_get_main_queue(), ^{
-              self.tmpImgV.image = image;
+                if ([image isKindOfClass:[UIImage class]]) {
+                    self.tmpImgV.image = image;
+                }
+              
             });
               
         }
@@ -336,6 +348,72 @@
 
     
 }
+#pragma mark - 录制
+
+- (IBAction)recordClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        [self startRecroding];
+    }else{
+        [self stopRecording];
+    }
+    
+}
+
+
+- (void)startRecroding{
+    
+    self.movieFileOutPut.movieFragmentInterval = CMTimeMakeWithSeconds(10, NSEC_PER_SEC);
+    
+    if (!self.movieFileOutPut.isRecording) {
+        AVCaptureConnection *connection = [self.movieFileOutPut connectionWithMediaType:AVMediaTypeVideo];
+        if ([connection isVideoOrientationSupported]) {
+            connection.videoOrientation = [self getCaptureImgOritension];
+        }else{
+             NSLog(@"不支持 videoOrientation");
+        }
+        if ([self.activeDeviceInput.device.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeAuto]) {
+            connection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;;
+        }else{
+            NSLog(@"不支持 AVCaptureVideoStabilizationModeAuto");
+        }
+        if ([self.activeDeviceInput.device isSmoothAutoFocusSupported]) {
+            NSError*error;
+            [self.activeDeviceInput.device lockForConfiguration:&error];
+            if (!error) {
+                self.activeDeviceInput.device.smoothAutoFocusEnabled = YES;
+                [self.activeDeviceInput.device unlockForConfiguration];
+                
+            }else{
+                NSLog(@"set smoothAutoFocusEnabled error--%@",error);
+            }
+            
+        }
+        self.outPutUrl = [self getMoviewOutUrl];
+        [self.movieFileOutPut startRecordingToOutputFileURL:self.outPutUrl recordingDelegate:self];
+        
+    }
+    
+}
+- (void)stopRecording{
+    if ([self.movieFileOutPut isRecording]) {
+        [self.movieFileOutPut stopRecording];
+    }
+}
+- (NSURL*)getMoviewOutUrl{
+    
+    NSString *tmp = NSTemporaryDirectory();
+    NSString* filepath = [tmp stringByAppendingString:@"mymovie.mov"];
+    return [NSURL fileURLWithPath:filepath];
+ 
+}
+#pragma mark-AVCaptureFileOutput delegate
+- (void)captureOutput:(AVCaptureFileOutput *)output didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray<AVCaptureConnection *> *)connections error:(NSError *)error{
+    NSLog(@"--stop recording---");
+    //保存到相册
+    [self writeToAlbum:outputFileURL];
+}
+
 
 //根据界面方向
 - (AVCaptureVideoOrientation)getCaptureImgOritension{
