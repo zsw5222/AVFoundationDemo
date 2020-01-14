@@ -198,7 +198,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgC-Xk-fAx">
                                         <rect key="frame" x="207" y="0.0" width="207" height="50"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="flash开"/>
+                                        <state key="selected" title="flash关"/>
+                                        <connections>
+                                            <action selector="flashSwitch:" destination="8Gk-DE-PSS" eventType="touchUpInside" id="W2r-v1-bN6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

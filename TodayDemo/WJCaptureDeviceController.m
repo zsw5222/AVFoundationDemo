@@ -264,7 +264,16 @@
     }
     
 }
- 
+#pragma mark- 闪光灯
+- (IBAction)flashSwitch:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.isSelected) {
+        [self setTorchhMode:AVCaptureTorchModeOn];
+    }else{
+        [self setTorchhMode:AVCaptureTorchModeOff];
+    }
+}
+
 - (void)setFlashMode:(AVCaptureFlashMode)flashMode{
     AVCaptureDevice *device = [self activeCamera];
     if ([device isFlashModeSupported:flashMode]) {
