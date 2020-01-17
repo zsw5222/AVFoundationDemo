@@ -439,5 +439,67 @@
             break;
     }
 }
+#pragma mark -scale
+
+- (CGFloat)maxZoom{
+    return MIN(self.activeDeviceInput.device.activeFormat.videoMaxZoomFactor, 4.0);
+}
+
+- (IBAction)changeZoomValue:(UISlider *)sender {
+ 
+}
+//value :0-1.0
+- (void)setZoom:(CGFloat)value{
+    if (!self.activeDeviceInput.device.rampingVideoZoom) {
+        NSError *error;
+        if ([self.activeDeviceInput.device lockForConfiguration:&error]) {
+            CGFloat zoomF = pow([self maxZoom], value);
+            self.activeDeviceInput.device.videoZoomFactor = zoomF;
+            [self.activeDeviceInput.device unlockForConfiguration];
+        }else{
+            NSLog(@"setzoom error---%@",error);
+        }
+    }
+}
+- (void)rampZooming:(CGFloat)value{
+    if (!self.activeDeviceInput.device.rampingVideoZoom) {
+        NSError *error;
+        if ([self.activeDeviceInput.device lockForConfiguration:&error]) {
+            CGFloat zoomF = pow([self maxZoom], value);
+            [self.activeDeviceInput.device rampToVideoZoomFactor:zoomF withRate:1.0];
+            [self.activeDeviceInput.device unlockForConfiguration];
+        }else{
+            NSLog(@"rampZooming error---%@",error);
+        }
+    }
+}
+- (void)cancelZooming{
+    if (self.activeDeviceInput.device.isRampingVideoZoom) {
+        NSError *error;
+        if ([self.activeDeviceInput.device lockForConfiguration:&error]) {
+          
+            [self.activeDeviceInput.device cancelVideoZoomRamp];
+            [self.activeDeviceInput.device unlockForConfiguration];
+        }else{
+            NSLog(@"cancelZooming error---%@",error);
+        }
+    }
+}
+
+- (IBAction)plusClick:(UIButton *)sender {
+    [self rampZooming:1];
+}
+
+
+- (IBAction)minusClick:(UIButton *)sender {
+    [self rampZooming:0];
+    
+}
+- (IBAction)zoomUp:(id)sender {
+    [self cancelZooming];
+    
+}
+
+
 
 @end
