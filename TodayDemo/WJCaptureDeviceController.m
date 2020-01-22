@@ -446,7 +446,7 @@
 }
 
 - (IBAction)changeZoomValue:(UISlider *)sender {
- 
+    [self setZoom:sender.value];
 }
 //value :0-1.0
 - (void)setZoom:(CGFloat)value{
